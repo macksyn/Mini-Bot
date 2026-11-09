@@ -1,0 +1,53 @@
+Instance created. Preparing to start...
+Starting download for registry01.prod.koyeb.com/k-30a0b47b-f9de-4874-9837-98ef0575f3b3/fd8a50f6-cb68-436b-9e00-fb733dd68aa3:14448303-25b4-4a54-b043-933e98ab6170
+Download progress: 100% |++++++++| (96.9 MiB/s)
+Download complete for registry01.prod.koyeb.com/k-30a0b47b-f9de-4874-9837-98ef0575f3b3/fd8a50f6-cb68-436b-9e00-fb733dd68aa3:14448303-25b4-4a54-b043-933e98ab6170
+ 
+> groq-ai@6.0.1 start:optimized
+> tsc && node --max-old-space-size=512 --optimize-for-size --gc-interval=100 dist/index.js
+ 
+Instance is starting... Waiting for health checks to pass.
+[07:50:53] 🗄️ MongoDB enabled - Unlimited storage with persistence
+[ATTENDANCE] Activity tracker not available (optional)
+[wcg] ✅ Loaded 369,652 words.
+[compile] Compiling dna.cpp...
+[07:50:53] ✅ Server listening on port 8000
+[compile] ✓ dna compiled
+[compile] Compiling cipher.cpp...
+[compile] ✓ cipher compiled
+[compile] Compiling rle.cpp...
+Instance is healthy. All health checks are passing.
+[compile] ✓ rle compiled
+[compile] Compiling analyze.cpp...
+[compile] ✓ analyze compiled
+[07:50:59] 💡 Starting GROQ AI...
+[07:50:59] 💡 📥 Downloading session from Mega: https://mega.nz/file/j350XKoB#uSGTbCJ9K7ff_vOhE7ioNecJo1JtifVf6K-Pzqwwiho
+[07:51:01] ✅ Session credentials downloaded from Mega successfully
+[07:51:03] ✅ Valid and registered session credentials found
+[07:51:03] ✅ Session file verified and valid
+[07:51:09] ✅ Bot connected successfully!
+[ATTENDANCE] Plugin loaded.
+[07:51:09] 💡 [BIRTHDAY] Running missed wishes after restart
+[07:51:09] 💡 [BIRTHDAY] ✅ Now listening for attendance:birthday events
+[07:51:09] 💡 [BIRTHDAY] node-cron scheduler started
+[07:51:09] 💡 [INACTIVE] Daily scheduler started (10:00 AM WAT)
+[07:51:09] 💡 [pluginLoader] Starting plugin lifecycle hooks...
+[07:51:10] ✅ [pluginLoader] onLoad ✓ (unnamed)
+[07:51:10] ✅ [pluginLoader] onLoad ✓ (unnamed)
+[07:51:10] 💡 [pluginLoader] Schedule registered: (unnamed)/08:00
+[07:51:10] 💡 [pluginLoader] Schedule registered: (unnamed)/22:00
+[07:51:10] 💡 [pluginLoader] Interval registered: (unnamed)/300000ms
+[07:51:10] 💡 [pluginLoader] Interval registered: (unnamed)/60000ms
+[rentbot] Restoring 1 clone(s) from registry…
+[07:51:12] ✅ [pluginLoader] onLoad ✓ (unnamed)
+[07:51:12] ✅ [pluginLoader] Ready — onLoad: 3, schedules: 4, onMessage hooks: 0
+[07:51:12] ✅ Connected to => {
+  "id": "2348166353338:16@s.whatsapp.net",
+  "lid": "239702762365030:16@lid"
+}
+[rentbot] Clone 9b1a79df was never paired — removing orphan
+[07:51:14] 💡 [ GROQ-AI ]
+[07:51:14] 💡 WA NUMBER  : 2348089782988
+[07:51:14] ✅ Bot Connected Successfully!
+[07:51:14] 💡 Plugins   : 276
+[07:51:14] 💡 Prefixes   : ., !, /

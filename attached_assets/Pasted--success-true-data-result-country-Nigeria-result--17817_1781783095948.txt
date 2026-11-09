@@ -1,0 +1,210 @@
+{
+  "success": true,
+  "data": {
+    "result": {
+      "country": "Nigeria",
+      "result": [
+        {
+          "rank": 1,
+          "hastag": "Henry"
+        },
+        {
+          "rank": 2,
+          "hastag": "Czech Republic"
+        },
+        {
+          "rank": 3,
+          "hastag": "#DMDLINEUP2026"
+        },
+        {
+          "rank": 4,
+          "hastag": "Ghana"
+        },
+        {
+          "rank": 5,
+          "hastag": "Fastlane"
+        },
+        {
+          "rank": 6,
+          "hastag": "Otedola"
+        },
+        {
+          "rank": 7,
+          "hastag": "Benzema"
+        },
+        {
+          "rank": 8,
+          "hastag": "Konaté"
+        },
+        {
+          "rank": 9,
+          "hastag": "Ramos"
+        },
+        {
+          "rank": 10,
+          "hastag": "Moscow"
+        },
+        {
+          "rank": 11,
+          "hastag": "Alex Ekubo"
+        },
+        {
+          "rank": 12,
+          "hastag": "Colombia"
+        },
+        {
+          "rank": 13,
+          "hastag": "Ycee"
+        },
+        {
+          "rank": 14,
+          "hastag": "Newcastle"
+        },
+        {
+          "rank": 15,
+          "hastag": "Mr Bayo"
+        },
+        {
+          "rank": 16,
+          "hastag": "Muñoz"
+        },
+        {
+          "rank": 17,
+          "hastag": "Martínez"
+        },
+        {
+          "rank": 18,
+          "hastag": "GenLayer"
+        },
+        {
+          "rank": 19,
+          "hastag": "Panamá"
+        },
+        {
+          "rank": 20,
+          "hastag": "uzbekistan"
+        },
+        {
+          "rank": 21,
+          "hastag": "Techriz"
+        },
+        {
+          "rank": 22,
+          "hastag": "Decent"
+        },
+        {
+          "rank": 23,
+          "hastag": "Luis Díaz"
+        },
+        {
+          "rank": 24,
+          "hastag": "Gabi"
+        },
+        {
+          "rank": 25,
+          "hastag": "Enzo Fernández"
+        },
+        {
+          "rank": 26,
+          "hastag": "Continuous"
+        },
+        {
+          "rank": 27,
+          "hastag": "Félix"
+        },
+        {
+          "rank": 28,
+          "hastag": "#FREEJOBY"
+        },
+        {
+          "rank": 29,
+          "hastag": "Osasuna"
+        },
+        {
+          "rank": 30,
+          "hastag": "Anichess"
+        },
+        {
+          "rank": 31,
+          "hastag": "Judges"
+        },
+        {
+          "rank": 32,
+          "hastag": "Bruno Fernandez"
+        },
+        {
+          "rank": 33,
+          "hastag": "Al Nassr"
+        },
+        {
+          "rank": 34,
+          "hastag": "#NSPPD"
+        },
+        {
+          "rank": 35,
+          "hastag": "Kaito"
+        },
+        {
+          "rank": 36,
+          "hastag": "Antoine Semenyo"
+        },
+        {
+          "rank": 37,
+          "hastag": "Hulk"
+        },
+        {
+          "rank": 38,
+          "hastag": "Jota"
+        },
+        {
+          "rank": 39,
+          "hastag": "Caleb Yirenkyi"
+        },
+        {
+          "rank": 40,
+          "hastag": "Ronaldo is 41"
+        },
+        {
+          "rank": 41,
+          "hastag": "Integrity"
+        },
+        {
+          "rank": 42,
+          "hastag": "elsa"
+        },
+        {
+          "rank": 43,
+          "hastag": "CeCe"
+        },
+        {
+          "rank": 44,
+          "hastag": "Conceição"
+        },
+        {
+          "rank": 45,
+          "hastag": "Derrick"
+        },
+        {
+          "rank": 46,
+          "hastag": "NELFUND"
+        },
+        {
+          "rank": 47,
+          "hastag": "Canopy"
+        },
+        {
+          "rank": 48,
+          "hastag": "CNPY"
+        },
+        {
+          "rank": 49,
+          "hastag": "black stars"
+        },
+        {
+          "rank": 50,
+          "hastag": "He's 41"
+        }
+      ]
+    }
+  }
+}

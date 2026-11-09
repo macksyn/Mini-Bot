@@ -1,0 +1,15 @@
+modules = ["nodejs-20", "python-3.12", "bash"]
+run = "npm install && npm run build && npm start"
+
+[nix]
+channel = "stable-25_05"
+
+[deployment]
+run = ["sh", "-c", "npm run start:optimized"]
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
+
+[agent]
+expertMode = true

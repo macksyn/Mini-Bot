@@ -1,0 +1,113 @@
+{
+  "name": "groq-ai",
+  "version": "6.0.0",
+  "description": "High performance multi-device WhatsApp bot",
+  "type": "module",
+  "main": "dist/index.js",
+  "directories": {
+    "assets": "assets",
+    "lib": "lib",
+    "data": "data",
+    "plugins": "plugins"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "start:optimized": "node --max-old-space-size=512 --optimize-for-size --gc-interval=100 dist/index.js",
+    "start:fresh": "node dist/reset-data.js && node dist/index.js",
+    "build": "tsc && cp -r assets dist/",
+    "rebuild": "npm run clean && npm run build",
+    "clean": "node -e \"import('fs').then(f=>f.default.rmSync('dist',{recursive:true,force:true}))\"",
+    "dev": "tsc --watch & nodemon --watch dist --ext js dist/index.js",
+    "setup": "npm run build && node dist/reset-data.js",
+    "reset-data": "node dist/reset-data.js",
+    "reset-session": "node -e \"import('fs').then(f=>f.default.rmSync('./session',{recursive:true,force:true})).then(()=>console.log('Session cleared!'))\"",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "test": "vitest run",
+    "test:unit": "vitest run test/unit",
+    "test:integration": "vitest run test/integration",
+    "test:watch": "vitest",
+    "audit": "npm audit --omit=dev",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "baileys-bot",
+    "Mega-Md",
+    "Suhail-Md",
+    "multi-device",
+    "nodejs-bot",
+    "typescript-bot"
+  ],
+  "homepage": "https://github.com/macksyn/MEGA-MDX",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macksyn/MEGA-MDX.git"
+  },
+  "bugs": {
+    "url": "https://github.com/macksyn/MEGA-MDX/issues"
+  },
+  "license": "MIT",
+  "author": "Alex Macksyn",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "acrcloud": "^1.4.0",
+    "api-qasim": "^3.2.10",
+    "awesome-phonenumber": "^5.9.0",
+    "axios": "^1.8.4",
+    "better-sqlite3": "^12.5.0",
+    "chalk": "^5.6.2",
+    "cheerio": "^1.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.22.1",
+    "file-type": "^21.3.4",
+    "form-data": "^4.0.1",
+    "gifted-btns": "^1.0.2",
+    "gspeak": "^0.0.3",
+    "human-readable": "^0.2.1",
+    "libphonenumber-js": "^1.11.18",
+    "megajs": "^1.3.9",
+    "moment-timezone": "^0.5.43",
+    "mongoose": "^9.0.2",
+    "mumaker": "^2.0.0",
+    "mysql2": "^3.16.0",
+    "node": "^26.12.0",
+    "node-cache": "^5.1.2",
+    "node-cron": "^4.6.0",
+    "node-fetch": "^3.3.2",
+    "node-webpmux": "^3.1.0",
+    "pg": "^8.16.3",
+    "qrcode": "^1.5.4",
+    "ruhend-scraper": "*",
+    "sharp": "^0.35.3",
+    "simple-git": "^3.30.0",
+    "stickers-formatter": "^1.0.0",
+    "syntax-error": "^1.4.0",
+    "yt-search": "^2.12.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.1",
+    "@types/qrcode": "^1.5.6",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^10.0.2",
+    "madge": "^8.0.0",
+    "nodemon": "^3.1.14",
+    "ts-unused-exports": "^11.0.1",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1",
+    "yargs-parser": "^21.1.1"
+  },
+  "allowScripts": {
+    "protobufjs@7.6.5": true,
+    "better-sqlite3@12.6.2": true,
+    "sharp@0.35.3": true,
+    "@whiskeysockets/baileys@7.0.0-rc14": true
+  }
+}

@@ -1,0 +1,1 @@
+- [Economy wallet identity sync](economy-identity-sync.md) — wallets now persist name/phone for recognition; reuse `syncIdentity()` instead of re-deriving @lid/pushName logic.
