@@ -20,7 +20,9 @@ import store from '../lib/lightweight_store.js';
  *   .autorob status
  *   .autorob bot [number]       add the Groq bot's id (or reply to one of its messages)
  *   .autorob target [number]    add the person to watch (or reply to one of their messages)
- *   .autorob clear bot|target
+ *   .autorob remove <number>    remove one target (or reply to their message)
+ *   .autorob remove bot <number> remove one Groq bot id
+ *   .autorob clear bot|target   remove everything in that list
  *   .autorob here | anywhere    only act in this group / in any group
  *   .autorob prefix <p>         the Groq bot's command prefix (default ".")
  *   .autorob cooldown <sec>     minimum gap between auto-robs (default 20)
@@ -49,7 +51,7 @@ const DEFAULTS: AutoRobState = {
     prefix: process.env.GROQ_BOT_PREFIX || '.',
     groupId: '',
     cooldownSec: 20,
-    maxPerHour: 15,
+    maxPerHour: 20,
     debug: false,
 };
 
@@ -235,6 +237,21 @@ async function command(sock: any, message: any, args: string[], context: BotCont
         state.enabled = false;
         await saveState(state);
         return say(`✅ Cleared ${which}. Auto-rob switched *OFF*.`);
+    }
+
+    if (sub === 'remove') {
+        const which = (rest[0] || '').toLowerCase();
+        const kind = which === 'bot' ? 'botIds' : 'targetIds';
+        const ids = idsFromInput(message, which === 'bot' || which === 'target' ? rest.slice(1) : rest);
+        if (!ids.length) return say(`❌ Usage: *.autorob remove 234xxxxxxxxxx* (or reply to their message)\nFor the Groq bot: *.autorob remove bot <number>*`);
+        const before = state[kind].length;
+        state[kind] = state[kind].filter(id => !ids.includes(id));
+        if (state[kind].length === before) {
+            return say(`❌ Not in the list. Current ${kind === 'botIds' ? 'bot ids' : 'targets'}: ${state[kind].join(', ') || '—'}`);
+        }
+        if (!state.botIds.length || !state.targetIds.length) state.enabled = false;
+        await saveState(state);
+        return say(`✅ Removed. ${kind === 'botIds' ? 'Bot ids' : 'Targets'} now: ${state[kind].join(', ') || '—'}${state.enabled ? '' : '\n_Auto-rob is OFF until both lists have an id._'}`);
     }
 
     if (sub === 'here' || sub === 'anywhere') {
