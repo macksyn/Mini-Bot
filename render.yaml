@@ -22,4 +22,4 @@ services:
         value: ""
       - key: DB_URL
         value: ""
-    startCommand: npm run start:optimized
+   
