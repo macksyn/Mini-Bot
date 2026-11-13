@@ -51,7 +51,7 @@ const DEFAULTS: AutoRobState = {
     prefix: process.env.GROQ_BOT_PREFIX || '.',
     groupId: '',
     cooldownSec: 20,
-    maxPerHour: 20,
+    maxPerHour: 15,
     debug: false,
 };
 
@@ -139,11 +139,18 @@ export async function handleAutoRobDetection(sock: any, chatId: any, message: an
         if (!chatId?.endsWith('@g.us')) return;
 
         const state = await loadState();
-        if (!state.enabled || !state.botIds.length || !state.targetIds.length) return;
-        if (state.groupId && state.groupId !== chatId) return;
+
+        // Debug mode explains why a confirmation-looking message was skipped (and stays quiet otherwise).
+        const text0 = state.debug ? textOf(unwrap(message.message)) : '';
+        const looksLike = !!text0 && RULES.some(r => r.re.test(text0));
+        const skip = (why: string) => { if (looksLike) console.log('[autorob] skip:', why); };
+
+        if (!state.enabled) return skip('auto-rob is OFF');
+        if (!state.botIds.length || !state.targetIds.length) return skip('bot or target list is empty');
+        if (state.groupId && state.groupId !== chatId) return skip(`restricted to ${state.groupId}, this is ${chatId}`);
 
         const sender = userPart(message.key?.participant);
-        if (!state.botIds.includes(sender)) return;
+        if (!state.botIds.includes(sender)) return skip(`sender "${sender}" is not in bot ids [${state.botIds.join(', ')}]`);
 
         const msgId = message.key?.id;
         if (msgId) {
@@ -165,19 +172,21 @@ export async function handleAutoRobDetection(sock: any, chatId: any, message: an
         }
 
         const rule = RULES.find(r => r.re.test(text));
-        if (!rule) return;
+        if (!rule) return skip('no rule matched');
 
         const targets = new Set(state.targetIds);
         let hit = '';
         if (rule.via.includes('mention')) hit = mentioned.find(j => targets.has(userPart(j))) || '';
         if (!hit && rule.via.includes('sender') && quotedFrom && targets.has(userPart(quotedFrom))) hit = quotedFrom;
-        if (!hit) return;
+        if (!hit) {
+            return skip(`no target match (rule: ${rule.name}, via ${rule.via.join('/')}). mentioned=[${mentioned.map(userPart).join(', ')}] quotedFrom=${userPart(quotedFrom) || '—'} targets=[${state.targetIds.join(', ')}]`);
+        }
 
         // Safety rails: minimum gap + hourly cap, so a burst of confirmations can't drain your bail coins.
         const now = Date.now();
-        if (now - lastFire < state.cooldownSec * 1000) return;
+        if (now - lastFire < state.cooldownSec * 1000) return skip('cooldown');
         while (fired.length && now - fired[0] > 3600_000) fired.shift();
-        if (fired.length >= state.maxPerHour) return;
+        if (fired.length >= state.maxPerHour) return skip('hourly cap reached');
         lastFire = now;
         fired.push(now);
 
